@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SeaFood</title>
+</head>
+<body>
+    <div class="container">
+        <header  id="navbar">
+            <a href="#" class="logo">Sea<span>Foods</span></a>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <span class="menuIcon" onclick="menuToggle();"></span>
+        </header>
+        <div class="content">
+            <div class="bannerText" id="slideshowText">
+                <div class="active">
+                    <h2>EAT Healthy<br>
+                        Stay Healthy</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. </p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>EAT Your<br>Veggies</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <a href="#">Read More</a>
+                </div>
+                <div>
+                    <h2>Good Food<br>Good Mood</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                    </p>
+                    <a href="#">Read More</a>
+                </div>
+            </div>
+            <div class="bannerImg" id="slideshow">
+                <img src="./img/pexels-markus-winkler-2862154.jpg" alt="assiette_crevette" class="active">
+                <img src="./img/pexels-bulbfish-1143754.jpg" alt="assiette_fruitmer">
+                <img src="./img/pexels-pixabay-434258.jpg" alt="assiettemerf">
+            </div>
+        </div>
+        <div class="icons">
+            <ul class="sci">
+                <li><a href="#"><img src="./img/Webdesign_Icone/facebook.png" alt="facebook"></a></li>
+                <li><a href="#"><img src="./img/Webdesign_Icone/twitter.png" alt="twitter"></a></li>
+                <li><a href="#"><img src="./img/Webdesign_Icone/instagram.png" alt="insta"></a></li>
+            </ul>
+            <ul class="controls">
+                <li><a href="#"><img src="./img/Webdesign_Icone/chevron_droit.png" alt="navDroit" onclick ="prevSlide();prevSlideText();"></a></li>
+                <li class="tourne"><a href="#"><img src="./img/Webdesign_Icone/chevron_gauche.png" alt="navGauche" onclick ="nextSlide();nextSlideText();"></a></li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var slideshow = document.getElementById('slideshow');
+        var slides = slideshow.getElementsByTagName('img');
+        var index = 0;
+        
+        function nextSlide()
+        {
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        function prevSlide()
+        {
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+
+        var slideshowText = document.getElementById('slideshowText');
+        var slidesText = slideshowText.getElementsByTagName('div');
+        var i = 0;
+        
+        function nextSlideText()
+        {
+            slidesText[i].classList.remove('active');
+            i = (i + 1) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function prevSlideText()
+        {
+            slidesText[i].classList.remove('active');
+            i = (i - 1 + slidesText.length) % slidesText.length;
+            slidesText[i].classList.add('active');
+        }
+        function menuToggle(){
+            var nav = document.getElementById('navbar')
+            nav.classList.toggle('active')
+        }
+    </script>
+</body>
+</html>
